@@ -1,7 +1,25 @@
 # Linux Basics Course
 
+Working in CentOS
+
 ### Whats New
+
+* ; can be used to sttring suquential commands together ie.
+  - cd new_dir; mkdir new_dir2; pwd 
+    - this changes your directory, makes a new directory then prints out to screen which directory you are currently working in, all in one line.
+
+* mkdir -p can allow you to make multiple directories in one go despite the pressence of any sub-directories that dont exist yet.
+
+* cat can redirect user input into files.
+  - cat > new_file.txt gives the user the ability to write information stright to the file outside a file editor like vi/vim.
+
+* mv cuts and pastes files and also renames
+   
 
 ### Work Completed
 
-### Important Notes:
+* Watched Intro to linux video getting redirect to Linux Basics Course
+
+### Important Notes
+
+* Linux seems to be fundementral in working or access many of the automation tools referenced earlier. A strong grasp on Linux will lead to higher degrees of comfort.
