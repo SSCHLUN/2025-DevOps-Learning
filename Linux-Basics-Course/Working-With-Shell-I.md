@@ -22,6 +22,9 @@
   - if we want to define this manually we can run
     - export PATH=$PATH:/path/to/file
     - re running #which# after doing this now outputs the file path as weve defined it.
+*  $PS1 allows us to edit out bash prompt
+  - this is helpful for multiserver/user situation where you need to make sure you are on the right user on the specific server you intended on being in as an example use case.
+*  
 
 
 ### What I Did
@@ -37,7 +40,17 @@ Lab 1: Working With Shell
   -   usr/bin/COMMAND means it is a binary file.
   -   COMMAND is aliased... means its a an alias
   -   COMMAND is a shell builtin means its built into the shell
-  -   COMMAND is a function is a function 
+  -   COMMAND is a function is a function
+
+Lab 2: Linux Bash Prompt
+  - Changed from bash to sh
+  - Changing required sudo since our user wasnt a sudoer. sudo chsh -s [path/to/shell] [user] you have to specify then relog to see changes.
+  - added a persistent variable to the ~/.profile which runs text on startup
+  - Appending variables into ~/.profile requires a text input so we have to run echo 'export VARIABLE=VALUE' >> ~/.profile since trying to append a command doesnt work profile is running it as us to initialize these variables before we start.
+  - The PS1 variable in CentOS lives in .bashrc not everything is in .profile
+  <img width="883" height="374" alt="bash-prompt3" src="https://github.com/user-attachments/assets/9a5e9111-8097-4792-b7fe-7404c1003fab" />
+References the many ways to change the bash prompt
+  
 
 ### Important Notes
 
@@ -46,3 +59,5 @@ $ allows us to reference variables that are set in various files.
 ; to string mutiple commands in one go. But it takes the context from the previous 
   ie. If i run mkdir -p reptile/snake; mkdir reptile/frog
     the -p isnt needed in the second command becasue after the first command is ran the reptile dir exists.
+
+When adding 
