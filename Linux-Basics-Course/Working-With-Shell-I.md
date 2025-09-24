@@ -48,8 +48,10 @@ Lab 2: Linux Bash Prompt
   - added a persistent variable to the ~/.profile which runs text on startup
   - Appending variables into ~/.profile requires a text input so we have to run echo 'export VARIABLE=VALUE' >> ~/.profile since trying to append a command doesnt work profile is running it as us to initialize these variables before we start.
   - The PS1 variable in CentOS lives in .bashrc not everything is in .profile
+
   <img width="883" height="374" alt="bash-prompt3" src="https://github.com/user-attachments/assets/9a5e9111-8097-4792-b7fe-7404c1003fab" />
-References the many ways to change the bash prompt
+  
+  - References the many ways to change the bash prompt
   
 
 ### Important Notes
