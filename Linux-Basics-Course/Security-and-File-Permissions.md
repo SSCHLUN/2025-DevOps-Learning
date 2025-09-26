@@ -90,6 +90,35 @@
 
 # IP Tables
 
+* Gives us the ability to apply netowrk security at a per server or host level.
+* Client to Server
+  - in RHEL and CentS should have IT Table by default
+  - other distros can run sudo packagemanager(apt) install iptables
+  - sudo iptables -L lets us see the current IP tables
+  - on a per device level we have to specify
+    - the Input Policies
+      - by default they accept everything
+      - we can drop if a source is from anything
+      - so we can setup a system wehre if we want to white list users. we can create an end rule that says drop all. then before that drop all we can create positive and negative drop logic to devices. that way we are effectively saying drop all unless X,Y,X
+      - we can configure rules around
+        - sources
+        - destinations
+        - ports being accessed
+        - protocols being used
+    - the Output Policies
+    - and for routing devices the forwarding policies.
+   
+  * iptables flag use case
+    - -A to add a rule
+    - -p to define the rule by protocol
+    - -s for source defining as an IP can be a single ip or range.
+    - -d destination as an IP
+    - --dport for the destinations port
+    - -j action we want to do ie ACCEPT/DROP
+    - -I inserts a rule at the top of the chain to add devices after we have created rules that would other wise block them.
+    - -D OUTPUT N > where N is the rule position number in sequential order.
+  * when running a command like iptables -A INPUT -p tcp --dport 22 -j DROP. by not defining the source we are saying it applies to all.
+ 
 ### What I Did
 
 # Lab 1 
@@ -114,6 +143,18 @@
 * verified we know to find keys in hidden file /home/bob/.ssh/authorized_keys
 * used > scp /path/to/file.tar.gz remote_host:/path/to/ | to move data from one host to another
 
+# Lab 4
+
+* SSH connect from our host client to a app server and database
+* updated and installed iptable packages on both devices
+* verified iptables was running on both devices with a > sudo iptables -L
+* added a rule to the app server that allowed for connections through SSH and HTTP from our host machine using > sudo iptables -A INPUT -p tcp -s OURIP --dport 22 and 80 -j ACCEPT
+* then we added the OUTPUT rules for accepts from the db server and out host machine.
+* after we created OUTPUT drop rules for any HTTPS and HTTP connections using. sudo iptables -A OUTPUT -p tcp --dport 80 and 443 -j DROP
+* finally on that machine we defined an INSERT for google.com connections on https.
+  - I pinged google.com which showed me the resolved ip address the machine has for google.com
+  - then I ran > sudo iptables -I -p tcp -s goo.gle.ip.addr --dport 443 -j ACCEPT
+
 ### Important Notes
 
 SSH uses port 22
@@ -121,3 +162,7 @@ Private keys are held by users public keys held by host.
 Use octal notation to change filer permissions
 -t flag in key-gen is for the encryption method
 -pr in scp is for perserving file perms and running recursively through directories.
+
+in IP tables if we have established connections between two servers lets say an app server and data base server. If the app server can reach out to the data base server and the database server is allowing connections from that host through that port you are fine. If the database server needs to send info back tot eha pp server as long as we arent blocking connections through the ephemeral port range we are good to have data go back and forth despite the lack of an explicit rule allowing this since we never specified to drop packets from data in that port range.
+
+if we are defining rules around something likea port make sure you have right protocol on as --dport doesnt run if theres no protocol defined before hand.
