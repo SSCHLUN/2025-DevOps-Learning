@@ -54,7 +54,7 @@
   - used vi to edit the file and change the dns to 8.8.8.8
   - found the search in the dns config to find out what our short hands resolve as.
 
-#Lab 2
+# Lab 2
   - has you confirm you know how to find the routes and adresses currently known an an interface.
   - ssh to another host you cant resolve an ip on.
   - turn the status of that port to UP
