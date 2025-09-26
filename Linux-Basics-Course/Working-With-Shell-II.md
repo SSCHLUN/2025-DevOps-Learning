@@ -15,6 +15,7 @@
   - gzip and gunzip
   - xz and unxz
 * They use different compression algorithms and have varied file sizes after zipping.
+* bzcat , zcat ,xcat let us concatenate compressed files.
 
 # Searching for Files and Patterns
 
@@ -33,8 +34,63 @@
   - You can combine the -A and -B flags to loot at very specific lines around the keyword.
 
 # IO Redirection
-  
+
+* we can use > to redirect the stdout to a file
+* we can also use >> to redirect this but as an appending change not replacement. needs to be in " "
+* we can use 2> to push the stderr to a file.
+* we can use 2>> to append.
+* if you dont want to see the stderr you can 2> to /dev/null - the bit bucket
+* We can use pipes to take the stdout of one cammond to funnel into another command as its stdin
+* in cases where you want to see the output being added to a file add tee after a pipe.
+* if you are appending us a -a flag after tee
+
+# VI Editor
+
+* run the vi command followed by a file
+* 3 Modes
+  - Insert
+    - press i,I,A,a,o,O to enter insert mode
+    - press escape to go back to command
+  - Command (Start)
+    - move around with arrow keys
+      - can also use h-left k-up j-down l-right
+    - go to a line then 'y y' to copy
+    - use -p above a line to paste below cursor
+    - use 'Z Z' to save
+    - use 'x' to delete a specific character.
+    - use 'd d' to delete an entire line.
+    - use 'd 3 d'  to delete the current line and next 2.
+    - use 'u' to undo changes
+    - use 'ctrl+r' to redo
+    - use '/(text)' to find character patterns in decending order and ? for acending
+    - n moves down in / mode and N moves up in / mode. Reversed for ? mode
+  - Last Line
+    - press : to go to last line mode
+    - used for saving the file
+    - discarding changes
+    - exit vi
+    - use :w to write to the file and save
+    - use :q to quit
+    - use :wq to save and quit
+    - use :q! to quit without saving
+
 
 ### What I Did
+
+# Lab 1
+
+* had to use find to locate files.
+* redirected the output of the find to a another file
+* had to use grep to search for a file in a directory
+* redirected stderr on failed attempts to a file
+* used zcat to read the conetents of a compressed file and redirected the output to another file.
+
+# Lab 2 
+
+* used vi to navigate around a text page using hjkl
+* copy and replaced lines and delete them
+* saved the edits to the file
+* deleted chunks of lines
+* undid and redid tasks.
 
 ### Important Notes
