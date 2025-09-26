@@ -119,6 +119,24 @@
     - -D OUTPUT N > where N is the rule position number in sequential order.
   * when running a command like iptables -A INPUT -p tcp --dport 22 -j DROP. by not defining the source we are saying it applies to all.
  
+# CRON Jobs
+
+* Lets us run specific commands on a set interval.
+* uses the chrond service
+* runs on the user level so be signed in where it matters.
+* crontab -e to open the menu
+  - has a structure of m h dom mon dow command
+  - minute-hour day of month month day of weekday
+  - if value is irrelevant or you want to run on every value use a "*"
+  - if you want to ru a command every 2 minutes versure the seoncd minute of each hour us a */2 for example as a way to say every minute per 2 logically turns into every 2 minues.
+  - hours are in 0-24 format.
+  - days are just the numerical value
+  - months are 1-12 format
+  - weekdays start on sunday at value 0
+* crontab -l lists out all current cronjobs
+* cat /file/where/appended.extension shows you that it actaully ran at that time.
+* tail /var/log/syslog lets you see comands that ran and when
+ 
 ### What I Did
 
 # Lab 1 
@@ -153,7 +171,14 @@
 * after we created OUTPUT drop rules for any HTTPS and HTTP connections using. sudo iptables -A OUTPUT -p tcp --dport 80 and 443 -j DROP
 * finally on that machine we defined an INSERT for google.com connections on https.
   - I pinged google.com which showed me the resolved ip address the machine has for google.com
-  - then I ran > sudo iptables -I -p tcp -s goo.gle.ip.addr --dport 443 -j ACCEPT
+  - then I ran > sudo iptables -I OUTPUT -p tcp -s goo.gle.ip.addr --dport 443 -j ACCEPT
+
+# Lab 5 
+
+* Had us identify the times when a cron job was schedlued to run
+* set a new cronjob to run every 6th hour of every day > 0 6 * * *
+* changed a cronjob to run every 30 minutes using */30 * * * *
+* look at list of cron jobs and identify which one happened on a specific time intervals to verify the ability to read the syntax.
 
 ### Important Notes
 
@@ -165,4 +190,7 @@ Use octal notation to change filer permissions
 
 in IP tables if we have established connections between two servers lets say an app server and data base server. If the app server can reach out to the data base server and the database server is allowing connections from that host through that port you are fine. If the database server needs to send info back tot eha pp server as long as we arent blocking connections through the ephemeral port range we are good to have data go back and forth despite the lack of an explicit rule allowing this since we never specified to drop packets from data in that port range.
 
-if we are defining rules around something likea port make sure you have right protocol on as --dport doesnt run if theres no protocol defined before hand.
+if we are defining rules around something like a port make sure you have right protocol on as --dport doesnt run if theres no protocol defined before hand.
+
+when defining chron jobs if running something on the 6th hour you have to define the minute as 0 otherwise its every minute of the 6th hour.
+
