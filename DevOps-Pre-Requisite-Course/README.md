@@ -1,4 +1,5 @@
-Logged history for the Pre-Requisite course and Linux Basics
+This serves as a platform to log my learning progress for certain Dev Ops Concepts.
 
-Notes Connected through Obsidian
+Notes now performed in Obsidian!
+
 
