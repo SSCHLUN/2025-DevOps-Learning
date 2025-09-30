@@ -1,7 +1,6 @@
 ### Professor Messer Video Notes
 
 # Phishing 2.2
----
 # Phishing
 - Social engineering with a tinge of spoofing.
 - Check for URL's that are legitimate.
@@ -21,7 +20,6 @@
 - Good summaries of scam types to stay up to date on very new stuff is this Reddit [Source](https://reddit.com/r/Scams)
 
 # Impersonation 2.2
----
 # The Pretext
 - Before the attack they are trying to set up a trap
 - Hello this is NAME from BUSINESS urgently calling you about POTENTIALLY REAL problem.
@@ -47,7 +45,7 @@
 - ALWAYS VERIFY BEFORE GIVING OVER INFORMATION
 - Verification should never be met with disdain or disregard any legit business wants your money and will take the time to verify themselves if it means losing a customer.
 # Watering Hole Attacks 2.2
----
+
 # Watering Hole Theory
 - The employees are so well trained
 - The attacker cannot go to you directly for the data.
@@ -67,7 +65,6 @@
 - Firewalls built into the IPS
 - Anti-virus / Anti-malware signature updates being done regularly if you run an anti-malware service on your desktop.
 # Misinformation/Disinformation
----
 # The Process
 - Create fake identities 
 - Create content
