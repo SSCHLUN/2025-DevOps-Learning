@@ -1,0 +1,6 @@
+- Study and Understand the CompTIA cert objectives FREE
+- Watch the Professor Messer objectives videos. FREE
+- Get a book for the Sec+ to have as an additional explanation and format. ~$Free - $250
+- Hand on Labs through Comptia ~$189 one time
+- Practice Exams from multiple sources usually Free or not very expensive. until I am getting like a 85-90%
+- Take the Exam before 2026.
