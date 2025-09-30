@@ -64,7 +64,7 @@
 - Defense in Depth
 - Firewalls built into the IPS
 - Anti-virus / Anti-malware signature updates being done regularly if you run an anti-malware service on your desktop.
-# Misinformation/Disinformation
+# Misinformation/Disinformation 2.2
 # The Process
 - Create fake identities 
 - Create content
@@ -77,3 +77,26 @@
 - Create tens of thousands of impersonated sites
 - Gets those sites into the google index and wait for people to be redirected there through searching or ai recommendations.
 - Source of most pop up animations 
+# Memory Injections 2.3
+# Finding Malware
+- Malware runs in memory this is why we use memory forensics to find and study malicious code
+- Memory contains running processes.
+	- DLLs (Dynamic Link Libraries)
+	- Threads 
+	- Buffers
+	- Memory Management functions
+	- + Much More
+- Malware is hidden somewhere
+	- Malware can either be injected into another process or run its own process.
+- Adds code into the memory of a pre-existing process
+- Gets access to the data in that process
+	- The same rights and permissions of that valid process
+	- Performed more privileged escalations as the process its hiding inside.
+- DLL Injections
+	- A windows library conotaining code and data
+	- Many applications user this library so its very wide sweeping.
+- Attackers inject a path to a malicious DLL
+- This allows for them between the Starting Address for the process and the ending address to put a path to a malicious dll. That way when the program runs. It can pass through detection software that doesn't look inside running processes and execute itself as a invalid part of a valid service.
+- The DLL is saved on disk so it needs to reference that path and then load that DLL before the next cycle of whatever process you are running that is legitimate. 
+
+
