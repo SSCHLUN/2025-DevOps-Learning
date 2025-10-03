@@ -7,3 +7,5 @@ Documentation of my process learning core devops principles.
 
 2025-9-30 Starting Sec + Studies
 
+2025-10-3 Linux Basics Course Complete
+
