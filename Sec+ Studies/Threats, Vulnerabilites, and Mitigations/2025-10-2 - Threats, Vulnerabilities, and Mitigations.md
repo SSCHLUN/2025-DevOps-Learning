@@ -53,6 +53,25 @@
 	- second level is "SELECT * FROM users WHERE name = '(SOME KNOWN USERNAME)' OR '1' = '1'  "
 - This 1 = 1 returns true so it would give all data available in the Data Base
 # Cross Site Scripting 2.3
+###  What it is
+- Sometimes labeled XSS
+- Information in one site gets moved over to another site
+- Very common
+- Usually using javascript 
+### XSS Example
+- Send a link with some kind of a malicious script.
+- This then gets ran by some user.
+- The user then clicks the link and due to the vulnerabilites in the link some data usually private data then gets sent to the script creator.
+### Non-persistent (reflected) XSS attack
+- When a website allows scripts to run in user inputs
+- Attacker emails a link that takes advantage of this vulnerability
+- Script is embedded in the URL its executing in the victims browser.
+- Attacker uses creds/session IDs/ cookies to steal information without them ever knowing.
+### Persistent (stored) XSS attack
+- Attacker posts a message to some kind of a public board.
+- It is now stored there and anyone who comes across and clicks it is now on a vulnerable website session
+- Not very specific just random access/
+
 
 
 
